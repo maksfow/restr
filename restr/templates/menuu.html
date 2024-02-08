@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'restr/css/menu.css' %} ">
+</head>
+<body>
+<h2 class="menu">{{ i.name }}</h2>
+{% for i in menu %}
+    <p class="main-link"><b>Название: </b>{{ i.name }}</p>
+    <p class="main-link"><b>Состав: </b>{{ i.description }}</p>
+    <p class="main-link"><b>Цена: </b>{{ i.price }}</p>
+    <p class="main-link"><b>Заведение: </b><a class='main' href="/restaurant/{{ i.restaurant.id }}">{{ i.restaurant.name }}</a><br>
+    <img src="{{ item.photo.url }}" alt="Фото блюда">
+    <hr>
+{% endfor %}
+<a href="/" class="main-link">На главную</a>
+</body>
+</html>

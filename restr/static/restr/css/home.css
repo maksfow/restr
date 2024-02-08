@@ -1,0 +1,44 @@
+body {
+    background: #FFFFCC ;
+    }
+.search-aside {
+
+  padding: 2.5% ;
+  float: right ;
+
+}
+.navigation-aside {
+     float: left ;
+     background: #FFCC99 ;
+     width: 20% ;
+     padding: 2.5% ;
+     height: 100vh ;
+     color:  #000000  ;
+     border-right: 5px solid #FFCCCC}
+.button {
+  margin-bottom: 10px; /* Добавляем отступ между кнопками */
+  background-color: #FF9999; /* Установка цвета фона кнопки */
+  color: white; /* Установка цвета текста на кнопке */
+  padding: 10px 20px; /* Установка отступов вокруг текста кнопки */
+  border: none; /* Удаление границы кнопки */
+  border-radius: 5px; /* Создание закругленных углов кнопки */
+  cursor: pointer; /* Изменение курсора при наведении на кнопку */
+}
+
+
+.boulanger {
+         color: #990033 ;
+        front-size: 24px ;
+        margin-left: 100px ;
+        font-weight: bold ;
+        }
+.navig {
+      color: #660033 ;
+      }
+.xx {
+    color: #660033 ;}
+aside ul li:hover ,aside ul a:hover {
+        color: black ;
+        text-decoration: none ;
+        transform: scale(1.05) ;
+        }
