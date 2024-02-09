@@ -10,14 +10,8 @@ from .handlers import bot
 def home(request):
     #  форма для поиска
     search_bar = forms.SearchForm()
-    kuxnya_info = Kuxnya.objects.all()
-    zavedeniye_info = Zavedeniye.objects.all()
-    restaurant_info = Restaurant.objects.all()
-    menu_info = MenuItem.objects.all()
-    review_info = Review.objects.all()
     # Отправить элементы на фронт
-    context = {"form": search_bar,  'kuxnya': kuxnya_info, 'zavedeniye': zavedeniye_info,
-               "restaurant":restaurant_info,"menu":menu_info,'review':review_info}
+    context = {"form": search_bar}
     return render(request, 'home.html', context)
 def search_restaurant(request):
     if request.method == 'POST':
@@ -91,7 +85,7 @@ def review(request):
 
 def revieww(request, pk):
     restaurant = Restaurant.objects.get(id=pk)  # Получаем ресторан по его id
-    reviews = Review.objects.filter(restaurant_id=pk)  # Фильтруем все отзывы по restaurant_id
+    reviews = Review.objects.filter(restaurant_id=pk)  # Фильтруем все отзывы по restaurant
     context = {'restaurant': restaurant, 'reviews': reviews}
     return render(request, 'revieww.html', context)
 
@@ -102,10 +96,9 @@ def restaurantt(request, pk):
     review = Review.objects.filter(restaurant=restaurant)
     kuxnya = Kuxnya.objects.filter(restaurant=restaurant)
     zavedeniye = Zavedeniye.objects.filter(restaurant=restaurant)
-    # Отправляем данные на фронт
-    form = ReviewForm(initial={'restaurant': restaurant.id})  # передаем идентификатор ресторана в форму
 
-    return render(request, 'restaurant.html', {'restaurant': restaurant, 'menu': menu, 'review': review, 'form': form ,
+
+    return render(request, 'restaurant.html', {'restaurant': restaurant, 'menu': menu, 'review': review,
                                                'kuxnya':kuxnya,'zavedeniye':zavedeniye})
 
 
